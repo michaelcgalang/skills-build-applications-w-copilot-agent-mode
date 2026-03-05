@@ -20,12 +20,26 @@ const Workouts = () => {
 
   return (
     <div>
-      <h2>Workouts</h2>
-      <ul>
-        {data.map((workout, idx) => (
-          <li key={idx}>{workout.name} - {workout.description} (Suggested for: {workout.suggested_for})</li>
-        ))}
-      </ul>
+      <h2 className="text-primary">Workouts</h2>
+      <table className="table table-striped table-bordered">
+        <thead className="table-primary">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Suggested For</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((workout, idx) => (
+            <tr key={idx}>
+              <td>{workout.name}</td>
+              <td>{workout.description}</td>
+              <td>{workout.suggested_for}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button className="btn btn-primary" onClick={() => window.location.reload()}>Refresh</button>
     </div>
   );
 };

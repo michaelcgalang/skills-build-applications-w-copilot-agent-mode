@@ -20,12 +20,26 @@ const Activities = () => {
 
   return (
     <div>
-      <h2>Activities</h2>
-      <ul>
-        {data.map((activity, idx) => (
-          <li key={idx}>{activity.type} - {activity.duration} min</li>
-        ))}
-      </ul>
+      <h2 className="text-primary">Activities</h2>
+      <table className="table table-striped table-bordered">
+        <thead className="table-primary">
+          <tr>
+            <th>Type</th>
+            <th>Duration (min)</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((activity, idx) => (
+            <tr key={idx}>
+              <td>{activity.type}</td>
+              <td>{activity.duration}</td>
+              <td>{activity.user?.name || activity.user}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button className="btn btn-primary" onClick={() => window.location.reload()}>Refresh</button>
     </div>
   );
 };

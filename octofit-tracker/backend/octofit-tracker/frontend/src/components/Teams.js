@@ -20,12 +20,24 @@ const Teams = () => {
 
   return (
     <div>
-      <h2>Teams</h2>
-      <ul>
-        {data.map((team, idx) => (
-          <li key={idx}>{team.name} - {team.description}</li>
-        ))}
-      </ul>
+      <h2 className="text-primary">Teams</h2>
+      <table className="table table-striped table-bordered">
+        <thead className="table-primary">
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((team, idx) => (
+            <tr key={idx}>
+              <td>{team.name}</td>
+              <td>{team.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <button className="btn btn-primary" onClick={() => window.location.reload()}>Refresh</button>
     </div>
   );
 };

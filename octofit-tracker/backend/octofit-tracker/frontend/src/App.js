@@ -10,17 +10,20 @@ import Workouts from './components/Workouts';
 function App() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-primary bg-primary">
         <div className="container-fluid">
           <img src={logo} alt="OctoFit Logo" className="octofit-logo" />
-          <Link className="navbar-brand" to="/">OctoFit Tracker</Link>
-          <div className="collapse navbar-collapse">
+          <Link className="navbar-brand text-light" to="/">OctoFit Tracker</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item"><Link className="nav-link" to="/activities">Activities</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/leaderboard">Leaderboard</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/teams">Teams</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/users">Users</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/workouts">Workouts</Link></li>
+              <li className="nav-item"><Link className="nav-link text-light" to="/activities">Activities</Link></li>
+              <li className="nav-item"><Link className="nav-link text-light" to="/leaderboard">Leaderboard</Link></li>
+              <li className="nav-item"><Link className="nav-link text-light" to="/teams">Teams</Link></li>
+              <li className="nav-item"><Link className="nav-link text-light" to="/users">Users</Link></li>
+              <li className="nav-item"><Link className="nav-link text-light" to="/workouts">Workouts</Link></li>
             </ul>
           </div>
         </div>
@@ -32,8 +35,26 @@ function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/users" element={<Users />} />
           <Route path="/workouts" element={<Workouts />} />
-          <Route path="/" element={<h2>Welcome to OctoFit Tracker!</h2>} />
+          <Route path="/" element={<div className="card p-4"><h1 className="display-4 text-primary">Welcome to OctoFit Tracker!</h1></div>} />
         </Routes>
+      </div>
+      {/* Bootstrap Modal Example (can be used in components) */}
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Modal Title</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              Modal body content goes here.
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" className="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
       </div>
     </Router>
   );

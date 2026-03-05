@@ -93,6 +93,23 @@ DATABASES = {
     }
 }
 
+# Use Djongo for MongoDB octofit_db
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'octofit_db',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'localhost',
+            'port': 27017,
+            'username': '',
+            'password': '',
+            'authSource': '',
+            'authMechanism': '',
+        },
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -106,17 +123,17 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-
-        # CORS settings
-        CORS_ALLOW_ALL_ORIGINS = True
-        CORS_ALLOW_CREDENTIALS = True
-        CORS_ALLOW_HEADERS = ['*']
-        CORS_ALLOW_METHODS = ['*']
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# CORS settings
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_METHODS = ['*']
 
 
 # Internationalization
